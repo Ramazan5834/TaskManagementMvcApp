@@ -10,13 +10,13 @@ namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Repositories
     {
         public List<Bildirim> GetirOkunmayanlar(int AppUserId)
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             return context.Bildirimler.Where(I => I.AppUserId == AppUserId && !I.Durum).ToList();
         }
 
         public int GetirOkunmayanSayisiileAppUserId(int AppUserId)
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             return context.Bildirimler.Count(I => I.AppUserId == AppUserId && !I.Durum);
 
         }

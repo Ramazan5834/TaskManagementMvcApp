@@ -5,11 +5,11 @@ using TaskManagement.Entities.Concrete;
 
 namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts
 {
-    public class ToDoContext : IdentityDbContext<AppUser,AppRole,int>
+    public class TaskManagementContext : IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database = UdemyyBlogToDo;integrated security=true");
+            optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database = TaskManagementDB;integrated security=true");
             base.OnConfiguring(optionsBuilder);
         }
 

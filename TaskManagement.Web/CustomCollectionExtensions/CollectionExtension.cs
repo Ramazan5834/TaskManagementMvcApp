@@ -24,7 +24,7 @@ namespace TaskManagement.Web.CustomCollectionExtensions
                     opt.Password.RequireLowercase = false;
                     opt.Password.RequireNonAlphanumeric = false;
                 })
-                .AddEntityFrameworkStores<ToDoContext>();
+                .AddEntityFrameworkStores<TaskManagementContext>();
             services.ConfigureApplicationCookie(opt =>
             {
                 opt.Cookie.Name = "IsTakipCookie";

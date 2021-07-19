@@ -12,7 +12,7 @@ namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Repositories
     {
         public List<AppUser> GetirAdminOlmayanlar()
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             return context.Users.Join(context.UserRoles, user => user.Id, userRole => userRole.UserId,
                 (resultUser, resultUserRole) => new
                 {
@@ -38,7 +38,7 @@ namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Repositories
 
         public List<AppUser> GetirAdminOlmayanlar(out int toplamSayfa, string aranacakKelime, int aktifSayfa = 1)
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             var result = context.Users.Join(context.UserRoles, user => user.Id, userRole => userRole.UserId,
                 (resultUser, resultUserRole) => new
                 {
@@ -71,7 +71,7 @@ namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Repositories
 
         public List<DualHelper> GetirEnCokGorevTamamlamisPersoneller()
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             return context.Gorevler.Include(I => I.AppUser).Where(I => I.Durum).GroupBy(I => I.AppUser.UserName)
                 .OrderByDescending(I => I.Count()).Take(5)
                 .Select(I => new DualHelper() { Isim = I.Key, GorevSayisi = I.Count() }).ToList();
@@ -79,7 +79,7 @@ namespace TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Repositories
 
         public List<DualHelper> GetirEnCokGorevdeCalisanPersoneller()
         {
-            using var context = new ToDoContext();
+            using var context = new TaskManagementContext();
             return context.Gorevler.Include(I => I.AppUser).Where(I => !I.Durum && I.AppUserId != null).GroupBy(I => I.AppUser.UserName)
                 .OrderByDescending(I => I.Count()).Take(5)
                 .Select(I => new DualHelper() { Isim = I.Key, GorevSayisi = I.Count() }).ToList();

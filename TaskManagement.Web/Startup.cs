@@ -20,7 +20,7 @@ namespace TaskManagement.Web
         {
             services.AddContainerDependencies();
 
-            services.AddDbContext<ToDoContext>();
+            services.AddDbContext<TaskManagementContext>();
             services.AddCustomIdentity();
             services.AddAutoMapper(typeof(Startup));
             services.AddCustomValidator();

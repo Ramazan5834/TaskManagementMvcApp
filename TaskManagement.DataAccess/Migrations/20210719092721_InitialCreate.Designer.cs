@@ -9,7 +9,7 @@ using TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 
 namespace TaskManagement.DataAccess.Migrations
 {
-    [DbContext(typeof(ToDoContext))]
+    [DbContext(typeof(TaskManagementContext))]
     [Migration("20210719092721_InitialCreate")]
     partial class InitialCreate
     {

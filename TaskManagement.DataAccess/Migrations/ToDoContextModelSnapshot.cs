@@ -8,7 +8,7 @@ using TaskManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 
 namespace TaskManagement.DataAccess.Migrations
 {
-    [DbContext(typeof(ToDoContext))]
+    [DbContext(typeof(TaskManagementContext))]
     partial class ToDoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
