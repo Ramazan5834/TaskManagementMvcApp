@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "StatusCode";
+    Layout = "~/Views/Shared/_StandartLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/img/statusCode.png" class="w-100" />
+    </div>
+    <div class="col-md-8 lead">
+        <h4 class="text-center">@ViewBag.Code</h4>
+        @ViewBag.Message
+        Sayfa Bulunamadı
+    </div>
+</div>
